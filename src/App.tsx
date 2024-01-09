@@ -2,6 +2,7 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { MainPage } from "./pages/MainPage/MainPage";
+import { OnePage } from "./pages/OnePage/OnePage";
 
 const routerConfig = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/main",
     element: <MainPage />,
+  },
+  {
+    path: "/one",
+    element: <OnePage />,
   },
 ]);
 

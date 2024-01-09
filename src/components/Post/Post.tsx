@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { StyledPost } from "./Post.style";
+import { useNavigate } from "react-router-dom";
 // import { PostSettings } from "./PostSettings";
 
 interface IPostProps {
@@ -20,11 +21,13 @@ export const Post = ({
   userName,
   regDate,
   photos1,
-  photos2,
+  photos2
 }: IPostProps) => {
-
+  const navigate=useNavigate();
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false)
-
+  const nextPage =()=>{
+    navigate("/one",{state:{id:userName}});
+  }
   return (
     <StyledPost $isLiked={isLiked} $isMarked={isMarked}>
       {/* <div className="Post _liked _marked"> */}
@@ -41,13 +44,16 @@ export const Post = ({
 
 
       {/* ----- Фото1, Фото2, id, Бренд, Год постройки ----- */}
+      <div onClick={nextPage}> 
+
+      
       <img src={photos1} alt="Здесь должно быть Фото1" />
       <img src={photos2} alt="Здесь должно быть Фото2" />
       <p className="Post__text">id: {userName}</p>
       <p className="Post__text">Бренд: {postText}</p>
       <p className="Post__text">Год постройки: {regDate}</p>
 
-
+</div>
 
       {/* <div className="media-container">
         <img

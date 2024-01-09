@@ -48,11 +48,13 @@ export const postApi = createApi({
   reducerPath: "postApi",
   baseQuery: fetchBaseQuery({
     baseUrl: baseURL,
+
     //-------------------------------- new
     prepareHeaders: (headers) => {
       headers.set(
         "x-rapidapi-key",
-        "56454238e5msh4cbd37a5441e8bcp10411ajsnafd43c64585e"
+        //"56454238e5msh4cbd37a5441e8bcp10411ajsnafd43c64585e"
+        "80a23d5f99msh3b0cbefced610b3p1d1c14jsn6e0dcbaf3233"
       );
       headers.set("x-rapidapi-host", "realtor16.p.rapidapi.com");
       return headers;
@@ -60,6 +62,7 @@ export const postApi = createApi({
   }),
 
   endpoints: (builder) => ({
+    // все дома
     SearchAll: builder.mutation<any, any>({
       query: (payload) => ({
         url: "/forsale",
@@ -81,7 +84,32 @@ export const postApi = createApi({
         arg
       ) => response.status,
     }),
+
+    // один дом
+    SearchOne: builder.mutation<any, any>({
+      query: (payload) => ({
+        url: "/property",
+        method: "GET",
+        //body: payload,
+        params: {
+          property_id: payload,
+        },
+      }),
+      transformResponse: (response:any, meta, arg) =>{
+        localStorage.setItem('oneHome',JSON.stringify(response));
+        return response
+      } ,
+      // Pick out errors and prevent nested properties in a hook or selector
+      transformErrorResponse: (
+        response: { status: string | number },
+        meta,
+        arg
+      ) => response.status,
+    }),
     //--------------------------------
+
+
+
 
 
     getPostList: builder.query<IGetPostListResponse, null>({
@@ -126,4 +154,5 @@ export const {
   useLazyGetPostByIdQuery,
   useAddNewpostMutation,
   useSearchAllMutation,
+  useSearchOneMutation,
 } = postApi;
