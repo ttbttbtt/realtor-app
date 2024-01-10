@@ -11,6 +11,9 @@ interface IPostProps {
 
   photos1: string;
   photos2: string;
+
+  line: string;
+  list_price: string;
 }
 
 export const Post = ({
@@ -21,6 +24,10 @@ export const Post = ({
   regDate,
   photos1,
   photos2,
+
+  line,
+  list_price,
+
 }: IPostProps) => {
   const navigate = useNavigate();
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
@@ -63,6 +70,10 @@ export const Post = ({
         <p className="Post__text">id: {userName}</p>
         <p className="Post__text">Бренд: {postText}</p>
         <p className="Post__text">Год постройки: {regDate}</p>
+
+        <p className="Post__text">Адрес: {line}</p>
+        <p className="Post__text">Цена: {list_price}</p>
+
       </div>
     </StyledPost>
   );

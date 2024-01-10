@@ -35,6 +35,9 @@ export const PostPage = () => {
         userName={data.property_id}
         photos1={data.photos[0].href}
         photos2={data.photos[1].href}
+
+        line={data.home.location.address.line}
+        list_price={data.home.list_price}
         />
       )}
     </Container>

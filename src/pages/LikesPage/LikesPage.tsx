@@ -51,6 +51,9 @@ export const LikesPage = () => {
                 userName={post.property_id}
                 photos1={post.photos[0].href}
                 photos2={post.photos[1].href}
+
+                line={post.location.address.line}
+                list_price={post.list_price}
                 
               />
             ))}

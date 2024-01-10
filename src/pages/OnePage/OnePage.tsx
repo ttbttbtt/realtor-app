@@ -51,6 +51,10 @@ export const OnePage = () => {
                 userName={data.home.property_id}
                 photos1={data.home.photos[0].href}
                 photos2={data.home.photos[1].href}
+
+                line={data.home.location.address.line}
+                list_price={data.home.list_price}
+
               />
             }
         </main>
