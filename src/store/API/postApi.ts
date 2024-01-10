@@ -53,7 +53,7 @@ export const postApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "x-rapidapi-key",
-        "f5ccf2adebmsh669e97d815a046dp17df69jsnc844b97dff78"
+        "9b68ca0e09msh630d961363b4e77p19f06ejsn5e86e9cd1939"
       );
       headers.set("x-rapidapi-host", "realtor16.p.rapidapi.com");
       return headers;
