@@ -5,6 +5,7 @@ import {
   useLazyGetPostListQuery,
   useSearchAllMutation,
 } from "../../store/API/postApi";
+import { Heading } from "../../components/Typografy/Heading";
 
 export const MainPage = () => {
   let [searchAll, { data }] = useSearchAllMutation();
@@ -33,9 +34,18 @@ export const MainPage = () => {
     <Container>
       <div className="MainPage">
 
+        <Heading headingText="Главная" />
+
+        <div className="nav">
+          <div><a href="./">Логин</a></div>
+          {/* <div><a href="./main">/ Главная</a></div> */}
+          <div><a href="./likes">/ Избранное</a></div>
+        </div>
         
-        {/* 30 попыток в месяц - экономим ))) работаем по кнопке */}
-        <button onClick={getAll}>Рендер всех домов</button>
+        {/* <div><img src="./eternity.png" alt="Дом мечты" /></div> */}
+
+        {/* 30 попыток в месяц - работаем по кнопке */}
+        <button onClick={getAll}>Нажмите для Рендера всех домов</button>
 
         <main className="Main">
           {data?.home_search &&

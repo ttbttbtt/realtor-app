@@ -58,15 +58,15 @@ export const LoginPage = () => {
     navigate("/main");
     };
 
-  useEffect(() => {
-    console.log("userData: ", userData);
+  // useEffect(() => {
+  //   console.log("userData: ", userData);
 
-    if (userData?.user_id) {
-      navigate("/main");
-      localStorage.setItem('userData', JSON.stringify(userData))
-      // localStorage.setItem('login', JSON.stringify(data))
-    }
-  }, [userData, navigate]);
+  //   if (userData?.user_id) {
+  //     navigate("/main");
+  //     localStorage.setItem('userData', JSON.stringify(userData))
+  //     // localStorage.setItem('login', JSON.stringify(data))
+  //   }
+  // }, [userData, navigate]);
 
   return (
     <Container>

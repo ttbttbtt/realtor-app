@@ -7,6 +7,7 @@ import {
 } from "../../store/API/postApi";
 
 import { useLocation } from "react-router-dom";
+import { Heading } from "../../components/Typografy/Heading";
 
 export const OnePage = () => {
   let [searchOne, { data }] = useSearchOneMutation();
@@ -29,9 +30,17 @@ export const OnePage = () => {
     <Container>
       <div className="MainPage">
 
+        <Heading headingText="Выбранный дом" />
+
+        <div className="nav">
+          <div><a href="./">Логин</a></div>
+          <div><a href="./main">/ Главная</a></div>
+          <div><a href="./likes">/ Избранное</a></div>
+        </div>
+
         
-        {/* 30 попыток в месяц - экономим ))) работаем по кнопке */}
-        <button onClick={getOne}>Рендер выбранного дома</button>
+        {/* 30 попыток в месяц - работаем по кнопке */}
+        <button onClick={getOne}>Нажмите для Рендера выбранного дома</button>
 
         <main className="Main">
           {data?.home &&
